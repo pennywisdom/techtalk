@@ -7,7 +7,12 @@
     "start": "node server.js",
     "dev": "nodemon server.js"
   },
-  "keywords": ["presentation", "tech-talk", "onestack", "deploy"],
+  "keywords": [
+    "presentation",
+    "tech-talk",
+    "onestack",
+    "deploy"
+  ],
   "author": "OneAdvanced",
   "license": "MIT",
   "dependencies": {
