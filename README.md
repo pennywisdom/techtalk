@@ -15,7 +15,37 @@ This tech talk demonstrates how OneStack Deploy transforms the traditional devel
 
 ## Running the Presentation
 
-Simply open `presentation.html` in any modern web browser. The presentation includes:
+### Option 1: Node.js Application (Recommended)
+
+1. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+
+2. **Start the server:**
+   ```bash
+   npm start
+   ```
+
+3. **Open your browser to:**
+   ```
+   http://localhost:3000
+   ```
+
+### Option 2: Static File
+
+Simply open `public/index.html` in any modern web browser.
+
+## Development
+
+For development with auto-reload:
+```bash
+npm run dev
+```
+
+## Features
+
+The presentation includes:
 
 - Interactive slide navigation
 - Responsive design
