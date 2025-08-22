@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OneStack Deploy - 5 Minutes to WOW!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #ffffff;
+            color: #2c3e50;
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        .presentation-container {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slide {
+            display: none;
+            width: 90vw;
+            max-height: 95vh;
+            text-align: center;
+            padding: 40px;
+            background: #ffffff;
+            border-radius: 20px;
+            border: 3px solid #e67e22;
+            box-shadow: 0 20px 60px rgba(230, 126, 34, 0.15);
+            animation: slideIn 0.5s ease-out;
+            overflow-y: auto;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% {
+                box-shadow: 0 0 30px rgba(243, 156, 18, 0.4), 0 0 60px rgba(243, 156, 18, 0.2), inset 0 0 20px rgba(243, 156, 18, 0.05);
+            }
+            50% {
+                box-shadow: 0 0 40px rgba(243, 156, 18, 0.6), 0 0 80px rgba(243, 156, 18, 0.3), inset 0 0 30px rgba(243, 156, 18, 0.1);
+            }
+        }
+
+        h1 {
+            font-size: 4rem;
+            margin-bottom: 30px;
+            color: #d35400;
+            font-weight: 700;
+            text-shadow: none;
+            letter-spacing: -2px;
+        }
+
+        h2 {
+            font-size: 3rem;
+            margin-bottom: 25px;
+            color: #e67e22;
+            text-shadow: none;
+            font-weight: 600;
+        }
+
+        h3 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: #34495e;
+            font-weight: 500;
+        }
+
+        p {
+            font-size: 1.4rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            text-align: left;
+            color: #2c3e50;
+            font-weight: 400;
+        }
+
+        .tagline {
+            font-size: 2.2rem;
+            color: #e67e22;
+            margin-bottom: 40px;
+            font-weight: 600;
+            text-shadow: none;
+        }
+
+        .navigation {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 20px;
+            z-index: 1000;
+        }
+
+        .nav-btn {
+            padding: 15px 30px;
+            background: #e67e22;
+            border: none;
+            border-radius: 8px;
+            color: #ffffff;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(230, 126, 34, 0.3);
+        }
+
+        .nav-btn:hover {
+            background: #d35400;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(211, 84, 0, 0.4);
+        }
+
+        .nav-btn:disabled {
+            background: #bdc3c7;
+            opacity: 0.6;
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+
+        .slide-counter {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            background: #34495e;
+            color: #ffffff;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(52, 73, 94, 0.3);
+        }
+
+        .demo-section {
+            background: #fdf2e9;
+            padding: 30px;
+            border-radius: 12px;
+            margin: 25px 0;
+            border-left: 6px solid #e67e22;
+            box-shadow: 0 4px 20px rgba(230, 126, 34, 0.1);
+        }
+
+        .architecture-diagram {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 12px;
+            margin: 25px 0;
+            border: 2px solid #ecf0f1;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .key-points {
+            text-align: left;
+            margin: 20px 0;
+        }
+
+        .key-points li {
+            margin: 10px 0;
+            font-size: 1.2rem;
+            list-style-type: none;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .key-points li:before {
+            content: "▶";
+            position: absolute;
+            left: 0;
+            color: #e67e22;
+            font-size: 1rem;
+        }
+
+        .highlight {
+            background: #e67e22;
+            padding: 4px 12px;
+            border-radius: 6px;
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .call-to-action {
+            background: #f39c12;
+            padding: 40px;
+            border-radius: 12px;
+            margin: 25px 0;
+            border: 3px solid #d35400;
+            box-shadow: 0 6px 25px rgba(243, 156, 18, 0.2);
+            color: #ffffff;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+            p { font-size: 1.1rem; }
+            .slide { padding: 20px; }
+            .nav-btn { padding: 10px 20px; font-size: 0.9rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation-container">
+        <div class="slide-counter">
+            <span id="current-slide">1</span> / <span id="total-slides">5</span>
+        </div>
+
+        <!-- Title Slide -->
+        <div class="slide active">
+            <h1>OneStack Deploy</h1>
+            <div class="tagline" style="font-size: 2.8rem; font-weight: 700; background: #e67e22; color: #ffffff; padding: 20px 40px; border-radius: 15px; margin: 40px auto; display: inline-block; box-shadow: 0 8px 30px rgba(230, 126, 34, 0.4);">5 Minutes to WOW!</div>
+            <h3 style="font-size: 1.6rem; color: #7f8c8d; font-weight: 400; font-style: italic; margin-top: 30px;">A Vercel for the Enterprise</h3>
+            <p style="text-align: center; font-size: 1.5rem; margin-top: 40px;">
+                From Code to Live Application<br>
+                <span class="highlight">No Docker. No YAML. No Hassle.</span>
+            </p>
+        </div>
+
+        <!-- Part 1: The Why -->
+        <div class="slide">
+            <h2>The Why</h2>
+            <h3>The Problem and The Vision</h3>
+            
+            <div style="display: flex; gap: 60px; align-items: flex-start; justify-content: center; margin-top: 50px;">
+                <div style="flex: 1; text-align: left;">
+                    <h3 style="color: #e74c3c; margin-bottom: 30px; height: 40px; display: flex; align-items: center;">😔 The Problem</h3>
+                    <div style="background: #fdf2e9; padding: 20px 30px 60px 30px; border-radius: 12px; border-left: 6px solid #e74c3c; height: 320px; display: flex; flex-direction: column; justify-content: flex-start; gap: 20px; border: 2px dashed #e74c3c; opacity: 0.9;">
+                        <div>
+                            <p style="margin-bottom: 15px; font-size: 1.2rem; color: #c0392b;"><strong>You have:</strong></p>
+                            <p style="margin-bottom: 8px; font-size: 1.1rem; color: #2c3e50;">✅ Great idea</p>
+                            <p style="margin-bottom: 0; font-size: 1.1rem; color: #2c3e50;">✅ Working code</p>
+                        </div>
+                        <div>
+                            <p style="margin-bottom: 15px; font-size: 1.2rem; color: #c0392b;"><strong>But then...</strong></p>
+                            <p style="margin-bottom: 6px; font-size: 1.1rem; color: #e74c3c;">❌ Weeks of infrastructure work</p>
+                            <p style="margin-bottom: 6px; font-size: 1.1rem; color: #e74c3c;">❌ Complex CI/CD setup</p>
+                            <p style="margin-bottom: 0; font-size: 1.1rem; color: #e74c3c;">❌ Docker configuration</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="flex: 1; text-align: left;">
+                    <h3 style="color: #f39c12; margin-bottom: 30px; height: 40px; display: flex; align-items: center;">💡 The Vision</h3>
+                    <div style="background: #fefcf3; padding: 20px 30px 60px 30px; border-radius: 12px; border-left: 6px solid #f39c12; height: 320px; display: flex; flex-direction: column; justify-content: space-between; border: 2px solid #f39c12; box-shadow: 0 0 30px rgba(243, 156, 18, 0.4), 0 0 60px rgba(243, 156, 18, 0.2), inset 0 0 20px rgba(243, 156, 18, 0.05); animation: pulseGlow 3s ease-in-out infinite;">
+                        <div>
+                            <p style="font-size: 1.2rem; margin-bottom: 20px; color: #2c3e50;">What if every developer had a button that says:</p>
+                            <div style="background: linear-gradient(135deg, #f39c12, #f1c40f); color: white; padding: 15px 25px; border-radius: 12px; text-align: center; font-size: 1.2rem; font-weight: 600; margin-bottom: 0; box-shadow: 0 4px 15px rgba(243, 156, 18, 0.3), 0 0 20px rgba(243, 156, 18, 0.3); transform: scale(1.02);">
+                                "Just Build and Deploy"
+                            </div>
+                        </div>
+                        <p style="font-size: 1.1rem; color: #f39c12; margin-bottom: 0; font-weight: 500;">Focus on building what matters.<br>Let us handle the rest.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Part 2: The How -->
+        <div class="slide">
+            <h2>The How</h2>
+            <h3>The Architecture</h3>
+            
+            <div class="architecture-diagram" style="width: 100%; margin: 20px auto; overflow: visible;">
+                <div id="mermaidDiagram" style="display: flex; justify-content: center; align-items: center; min-height: 50px; width: 100%; overflow-x: auto;">
+                    <!-- Mermaid diagram will render here -->
+                </div>
+                <script type="text/javascript">
+                    const diagramDefinition = `
+                        graph LR
+                            A["🚀 Push<br>Code"] --> B["🔍 Detect<br>Change"]
+                            B --> C["⚡ Trigger<br>Pipeline"]
+                            C --> D{"🎯 Process<br>Application"}
+                            D --> E["📦 Package<br>Application"]
+                            D --> G["📄 Generate<br>Manifests"]
+                            E --> F["🏪 Store<br>Image"]
+                            G --> H["📝 Create<br>Config"]
+                            F --> I["🚀 Deploy<br>Application"]
+                            H --> I
+                            I --> J["⚙️ Provision<br>Infrastructure"]
+                            J --> K["🌐 Make<br>Live"]
+
+                            classDef startNode fill:#e67e22,stroke:#d35400,stroke-width:2px,color:#000,font-size:14px,font-family:Arial
+                            classDef actionNode fill:#f39c12,stroke:#e67e22,stroke-width:2px,color:#000,font-size:14px,font-family:Arial
+                            classDef processNode fill:#f1c40f,stroke:#f39c12,stroke-width:2px,color:#000,font-size:14px,font-family:Arial
+                            classDef finalNode fill:#e67e22,stroke:#d35400,stroke-width:2px,color:#000,font-size:14px,font-family:Arial
+
+                            class A startNode
+                            class B,C actionNode
+                            class D startNode
+                            class E,G,I actionNode
+                            class F,H,J processNode
+                            class K finalNode
+                    `;
+                    
+                    mermaid.render('mermaidSvg', diagramDefinition).then(({ svg }) => {
+                        // Add custom CSS to improve text alignment and arrow styling
+                        const style = document.createElement('style');
+                        style.textContent = `
+                            .mermaid {
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                            }
+                        `;
+                        document.head.appendChild(style);
+                        document.getElementById('mermaidDiagram').innerHTML = svg;
+                    }).catch(error => {
+                        console.error('Mermaid rendering failed:', error);
+                        document.getElementById('mermaidDiagram').innerHTML = '<p style="color: #e74c3c; text-align: center;">Diagram failed to load</p>';
+                    });
+                </script>
+            </div>
+
+            <div class="key-points">
+                <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 15px; margin-top: 30px;">
+                    <div style="background: linear-gradient(135deg, #3498db, #2980b9); color: white; padding: 15px; border-radius: 12px; box-shadow: 0 6px 20px rgba(52, 152, 219, 0.3); text-align: center;">
+                        <div style="font-size: 1.8rem; margin-bottom: 8px;">🐙</div>
+                        <h4 style="margin: 0 0 6px 0; font-size: 1rem; font-weight: bold;">GitHub App</h4>
+                        <p style="margin: 0; font-size: 0.85rem; color: #ecf0f1; text-align: center;">Listens for push events</p>
+                    </div>
+                    
+                    <div style="background: linear-gradient(135deg, #9b59b6, #8e44ad); color: white; padding: 15px; border-radius: 12px; box-shadow: 0 6px 20px rgba(155, 89, 182, 0.3); text-align: center;">
+                        <div style="font-size: 1.8rem; margin-bottom: 8px;">⚙️</div>
+                        <h4 style="margin: 0 0 6px 0; font-size: 1rem; font-weight: bold;">Harness Pipeline</h4>
+                        <p style="margin: 0; font-size: 0.85rem; color: #ecf0f1; text-align: center;">Auto-packaging stages</p>
+                    </div>
+                    
+                    <div style="background: linear-gradient(135deg, #e74c3c, #c0392b); color: white; padding: 15px; border-radius: 12px; box-shadow: 0 6px 20px rgba(231, 76, 60, 0.3); text-align: center;">
+                        <div style="font-size: 1.8rem; margin-bottom: 8px;">📄</div>
+                        <h4 style="margin: 0 0 6px 0; font-size: 1rem; font-weight: bold;">.services.yaml</h4>
+                        <p style="margin: 0; font-size: 0.85rem; color: #ecf0f1; text-align: center;">Secret sauce config</p>
+                    </div>
+                    
+                    <div style="background: linear-gradient(135deg, #27ae60, #229954); color: white; padding: 15px; border-radius: 12px; box-shadow: 0 6px 20px rgba(39, 174, 96, 0.3); text-align: center;">
+                        <div style="font-size: 1.8rem; margin-bottom: 8px;">🔧</div>
+                        <h4 style="margin: 0 0 6px 0; font-size: 1rem; font-weight: bold;">Custom CLI</h4>
+                        <p style="margin: 0; font-size: 0.85rem; color: #ecf0f1; text-align: center;">Score.dev framework</p>
+                    </div>
+                    
+                    <div style="background: linear-gradient(135deg, #f39c12, #e67e22); color: white; padding: 15px; border-radius: 12px; box-shadow: 0 6px 20px rgba(243, 156, 18, 0.4); text-align: center;">
+                        <div style="font-size: 1.8rem; margin-bottom: 8px;">🚀</div>
+                        <h4 style="margin: 0 0 6px 0; font-size: 1rem; font-weight: bold;">Auto-deploy</h4>
+                        <p style="margin: 0; font-size: 0.85rem; color: #ecf0f1; text-align: center;">EKS with public URL</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Part 3: The What - Live Demo -->
+        <div class="slide">
+            <h2>The What</h2>
+            <h3>Live Demo</h3>
+            
+            <!-- Main Demo Placeholder -->
+            <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 400px; text-align: center;">
+                
+                <!-- Giant Demo Icon -->
+                <div style="font-size: 8rem; margin-bottom: 30px; animation: bounce 2s infinite;">
+                    🎬
+                </div>
+                
+                <!-- Main Title -->
+                <h1 style="font-size: 3.5rem; font-weight: bold; background: linear-gradient(135deg, #e67e22, #f39c12); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin: 0 0 20px 0; text-shadow: 2px 2px 4px rgba(0,0,0,0.1);">
+                    THE DEMO
+                </h1>
+                
+                <!-- Subtitle -->
+                <p style="font-size: 1.6rem; color: #7f8c8d; margin: 0 0 40px 0; font-weight: 300; letter-spacing: 2px;">
+                    FROM PUSH TO PRODUCTION
+                </p>
+                
+                <!-- Action Button -->
+                <div style="background: linear-gradient(135deg, #e67e22, #d35400); color: white; padding: 20px 50px; border-radius: 50px; font-size: 1.4rem; font-weight: bold; box-shadow: 0 10px 30px rgba(230, 126, 34, 0.4); cursor: pointer; transition: all 0.3s ease; border: none; text-transform: uppercase; letter-spacing: 1px;">
+                    🚀 Let's Build Something Live!
+                </div>
+                
+                <!-- Time Badge -->
+                <div style="margin-top: 30px; background: rgba(46, 204, 113, 0.1); border: 2px solid #2ecc71; border-radius: 25px; padding: 10px 25px; color: #27ae60; font-weight: bold; font-size: 1.1rem;">
+                    ⏱️ 5 Minutes to WOW (or less)
+                </div>
+                
+            </div>
+            
+            <!-- CSS Animation for Bounce -->
+            <style>
+                @keyframes bounce {
+                    0%, 20%, 50%, 80%, 100% {
+                        transform: translateY(0);
+                    }
+                    40% {
+                        transform: translateY(-20px);
+                    }
+                    60% {
+                        transform: translateY(-10px);
+                    }
+                }
+            </style>
+        </div>
+
+        <!-- Part 4: Call to Action -->
+        <div class="slide">
+            <h2>The Call to Action</h2>
+            
+            <!-- Clean Header -->
+            <div style="text-align: center; margin-bottom: 30px;">
+                <div style="background: linear-gradient(135deg, #e67e22, #d35400); color: white; padding: 20px 30px; border-radius: 15px; display: inline-block; box-shadow: 0 6px 20px rgba(230, 126, 34, 0.3);">
+                    <h3 style="margin: 0; font-size: 1.8rem; font-weight: bold;">🎯 Join Our Alpha Program</h3>
+                    <p style="margin: 8px 0 0 0; font-size: 1.1rem; opacity: 0.9; text-align: center;">First <strong>20 internal pioneers</strong> wanted!</p>
+                </div>
+            </div>
+
+            <!-- Simple Feature List -->
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin: 30px 0;">
+                <div style="background: #f8f9fa; padding: 20px; border-radius: 12px; border-left: 4px solid #e67e22; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                    <div style="font-size: 2rem; margin-bottom: 10px;">👥</div>
+                    <h4 style="margin: 0 0 8px 0; color: #2c3e50; font-size: 1rem;">For Everyone</h4>
+                    <p style="margin: 0; font-size: 0.9rem; color: #2c3e50; font-weight: bold; text-align: center;">Any GitHub repo + OneAdvanced employee</p>
+                </div>
+
+                <div style="background: #f8f9fa; padding: 20px; border-radius: 12px; border-left: 4px solid #e67e22; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                    <div style="font-size: 2rem; margin-bottom: 10px;">💻</div>
+                    <h4 style="margin: 0 0 8px 0; color: #2c3e50; font-size: 1rem;">Any IDE</h4>
+                    <p style="margin: 0; font-size: 0.9rem; color: #2c3e50; font-weight: bold; text-align: center;">VS Code, IntelliJ, or any tool</p>
+                </div>
+
+                <div style="background: #f8f9fa; padding: 20px; border-radius: 12px; border-left: 4px solid #e67e22; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                    <div style="font-size: 2rem; margin-bottom: 10px;">🔄</div>
+                    <h4 style="margin: 0 0 8px 0; color: #2c3e50; font-size: 1rem;">Any Workflow</h4>
+                    <p style="margin: 0; font-size: 0.9rem; color: #2c3e50; font-weight: bold; text-align: center;">Traditional, vibe-coding, AI gen</p>
+                </div>
+
+                <div style="background: #f8f9fa; padding: 20px; border-radius: 12px; border-left: 4px solid #e67e22; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                    <div style="font-size: 2rem; margin-bottom: 10px;">🎯</div>
+                    <h4 style="margin: 0 0 8px 0; color: #2c3e50; font-size: 1rem;">One Goal</h4>
+                    <p style="margin: 0; font-size: 0.9rem; color: #2c3e50; font-weight: bold; text-align: center;">Idea to live service, instantly</p>
+                </div>
+            </div>
+
+            <!-- Simple CTA -->
+            <div style="text-align: center; margin-top: 40px;">
+                <h3 style="color: #2c3e50; margin-bottom: 15px;">🚀 Ready to Build the Future?</h3>
+                <p style="font-size: 1.3rem; color: #e67e22; font-weight: bold; text-align: center; margin-bottom: 20px; text-shadow: 1px 1px 2px rgba(0,0,0,0.1);">Message me on Teams or email directly</p>
+                <div style="background: #e67e22; color: white; padding: 15px 40px; border-radius: 25px; display: inline-block; font-size: 1.3rem; font-weight: bold; box-shadow: 0 4px 15px rgba(230, 126, 34, 0.3);">
+                    🙋‍♂️ Who's ready to get their hands dirty?
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="navigation">
+        <button class="nav-btn" id="prev-btn" onclick="previousSlide()" disabled>← Previous</button>
+        <button class="nav-btn" id="next-btn" onclick="nextSlide()">Next →</button>
+    </div>
+
+    <script>
+        // Initialize Mermaid
+        mermaid.initialize({ 
+            startOnLoad: false, // Changed to false since we're rendering manually
+            theme: 'base',
+            themeVariables: {
+                primaryColor: '#e67e22',
+                primaryTextColor: '#2c3e50',
+                primaryBorderColor: '#d35400',
+                lineColor: '#34495e',
+                secondaryColor: '#fdf2e9',
+                tertiaryColor: '#f8f9fa',
+                background: '#ffffff',
+                mainBkg: '#ffffff',
+                secondaryBkg: '#fdf2e9',
+                tertiaryBkg: '#f8f9fa'
+            }
+        });
+
+        let currentSlideIndex = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        document.getElementById('total-slides').textContent = totalSlides;
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === index);
+            });
+            
+            document.getElementById('current-slide').textContent = index + 1;
+            document.getElementById('prev-btn').disabled = index === 0;
+            document.getElementById('next-btn').disabled = index === totalSlides - 1;
+        }
+
+        function nextSlide() {
+            if (currentSlideIndex < totalSlides - 1) {
+                currentSlideIndex++;
+                showSlide(currentSlideIndex);
+            }
+        }
+
+        function previousSlide() {
+            if (currentSlideIndex > 0) {
+                currentSlideIndex--;
+                showSlide(currentSlideIndex);
+            }
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            switch(e.key) {
+                case 'ArrowRight':
+                case ' ':
+                    e.preventDefault();
+                    nextSlide();
+                    break;
+                case 'ArrowLeft':
+                    e.preventDefault();
+                    previousSlide();
+                    break;
+                case 'Home':
+                    e.preventDefault();
+                    currentSlideIndex = 0;
+                    showSlide(currentSlideIndex);
+                    break;
+                case 'End':
+                    e.preventDefault();
+                    currentSlideIndex = totalSlides - 1;
+                    showSlide(currentSlideIndex);
+                    break;
+            }
+        });
+
+        // Touch/swipe support for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        document.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = touchStartX - touchEndX;
+            
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    nextSlide(); // Swipe left - next slide
+                } else {
+                    previousSlide(); // Swipe right - previous slide
+                }
+            }
+        }
+
+        // Initialize
+        showSlide(currentSlideIndex);
+    </script>
+</body>
+</html>
