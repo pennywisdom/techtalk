@@ -1,6 +1,6 @@
 # OneStack Deploy Tech Talk
 
-**5 minuetes to Wow!**
+**5 minutes to Wow!**
 
 A presentation showcasing OneStack Deploy - a revolutionary platform that streamlines the development-to-deployment pipeline.
 
