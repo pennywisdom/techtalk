@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OneStack Deploy - 5 Minutes to WOW!</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
     <style>
         * {
@@ -34,7 +35,7 @@
             width: 90vw;
             max-height: 95vh;
             text-align: center;
-            padding: 40px;
+            padding: 120px 40px 40px 40px;
             background: #ffffff;
             border-radius: 20px;
             border: 3px solid #e67e22;
@@ -44,7 +45,8 @@
         }
 
         .slide.active {
-            display: block;
+            display: block !important;
+            visibility: visible !important;
         }
 
         @keyframes slideIn {
@@ -252,64 +254,131 @@
 </head>
 <body>
     <div class="presentation-container">
+        <!-- OneAdvanced Logo -->
+        <div style="position: fixed; top: 30px; left: 30px; z-index: 1000;">
+            <img src="oneadvanced-logo.svg" alt="OneAdvanced" style="height: 40px; opacity: 0.8;">
+        </div>
+
+        <!-- OneStack Deploy Title - Persistent across all slides -->
+        <div style="position: fixed; top: 30px; left: 50%; transform: translateX(-50%); z-index: 1000; text-align: center;">
+            <h1 style="font-size: 3rem; margin: 0; color: #e67e22; font-weight: 700; text-shadow: 0 2px 4px rgba(230, 126, 34, 0.2);">OneStack Deploy</h1>
+        </div>
+
         <div class="slide-counter">
             <span id="current-slide">1</span> / <span id="total-slides">5</span>
         </div>
 
         <!-- Title Slide -->
-        <div class="slide active">
-            <h1>OneStack Deploy</h1>
-            <div class="tagline" style="font-size: 2.8rem; font-weight: 700; background: #e67e22; color: #ffffff; padding: 20px 40px; border-radius: 15px; margin: 40px auto; display: inline-block; box-shadow: 0 8px 30px rgba(230, 126, 34, 0.4);">5 Minutes to WOW!</div>
-            <h3 style="font-size: 1.6rem; color: #7f8c8d; font-weight: 400; font-style: italic; margin-top: 30px;">A Vercel for the Enterprise</h3>
-            <p style="text-align: center; font-size: 1.5rem; margin-top: 40px;">
+        <div class="slide active" style="padding: 80px 40px 80px 40px;">            
+            <div class="tagline" style="font-size: 3.2rem; font-weight: 700; background: #e67e22; color: #ffffff; padding: 30px 50px; border-radius: 20px; margin: 20px auto 40px auto; display: inline-block; box-shadow: 0 12px 40px rgba(230, 126, 34, 0.4);">5 Minutes to WOW!</div>
+            <h2 style="font-size: 2rem; color: #7f8c8d; font-weight: 400; font-style: italic; margin: 0; padding: 20px 0 30px 0;">A Vercel for the Enterprise</h2>
+            <p style="text-align: center; font-size: 1.8rem; margin: 40px 0 0 0; line-height: 1.4;">
                 From Code to Live Application<br>
-                <span class="highlight">No Docker. No YAML. No Hassle.</span>
+                <span class="highlight" style="font-size: 1.6rem;">No Build. No Terraform. No Hassle.</span>
             </p>
         </div>
 
         <!-- Part 1: The Why -->
-        <div class="slide">
+        <div class="slide" style="padding: 80px 40px 80px 40px;">
             <h2>The Why</h2>
-            <h3>The Problem and The Vision</h3>
+            <h3>The Journey from Idea to Reality</h3>
             
-            <div style="display: flex; gap: 60px; align-items: flex-start; justify-content: center; margin-top: 50px;">
-                <div style="flex: 1; text-align: left;">
-                    <h3 style="color: #e74c3c; margin-bottom: 30px; height: 40px; display: flex; align-items: center;">😔 The Problem</h3>
-                    <div style="background: #fdf2e9; padding: 20px 30px 60px 30px; border-radius: 12px; border-left: 6px solid #e74c3c; height: 320px; display: flex; flex-direction: column; justify-content: flex-start; gap: 20px; border: 2px dashed #e74c3c; opacity: 0.9;">
-                        <div>
-                            <p style="margin-bottom: 15px; font-size: 1.2rem; color: #c0392b;"><strong>You have:</strong></p>
-                            <p style="margin-bottom: 8px; font-size: 1.1rem; color: #2c3e50;">✅ Great idea</p>
-                            <p style="margin-bottom: 0; font-size: 1.1rem; color: #2c3e50;">✅ Working code</p>
+            <!-- Current Reality vs Vision Layout -->
+            <div style="margin-top: 50px;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr 0.2fr 1fr; gap: 20px; align-items: start;">
+                    <!-- Card 1: The Plan -->
+                    <div style="background: #f8f9fa; padding: 30px; border-radius: 12px; border-left: 4px solid #27ae60; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                        <div style="color: #e67e22; font-size: 1rem; font-weight: bold; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px;">Current Reality</div>
+                        <div style="font-size: 3rem; margin-bottom: 20px;">💭</div>
+                        <h3 style="color: #27ae60; margin-bottom: 20px; font-size: 1.4rem; font-weight: bold;">The Innovation</h3>
+                        <div style="background: rgba(255, 255, 255, 0.8); padding: 15px; border-radius: 12px; margin-bottom: 20px;">
+                            <p style="font-size: 1.1rem; color: #2c3e50; margin-bottom: 10px; font-weight: 600;">✨ Brilliant idea</p>
+                            <p style="font-size: 1.1rem; color: #2c3e50; margin-bottom: 10px; font-weight: 600;">⚡ Working prototype</p>
+                            <p style="font-size: 1.1rem; color: #2c3e50; margin: 0; font-weight: 600;">🎯 Ready to ship!</p>
                         </div>
-                        <div>
-                            <p style="margin-bottom: 15px; font-size: 1.2rem; color: #c0392b;"><strong>But then...</strong></p>
-                            <p style="margin-bottom: 6px; font-size: 1.1rem; color: #e74c3c;">❌ Weeks of infrastructure work</p>
-                            <p style="margin-bottom: 6px; font-size: 1.1rem; color: #e74c3c;">❌ Complex CI/CD setup</p>
-                            <p style="margin-bottom: 0; font-size: 1.1rem; color: #e74c3c;">❌ Docker configuration</p>
+                        <div style="background: linear-gradient(135deg, #27ae60, #229954); color: white; padding: 12px; border-radius: 8px; font-weight: bold; font-size: 1rem;">
+                            "This is going to be HUGE!"
                         </div>
+                    </div>
+
+                    <!-- Card 2: The Reality -->
+                    <div style="background: #f8f9fa; padding: 30px; border-radius: 12px; border-left: 4px solid #e67e22; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                        <div style="color: #e67e22; font-size: 1rem; font-weight: bold; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px;">Current Reality</div>
+                        <div style="font-size: 3rem; margin-bottom: 20px;">😱</div>
+                        <h3 style="color: #e67e22; margin-bottom: 20px; font-size: 1.4rem; font-weight: bold;">The Risk</h3>
+                        <div style="background: rgba(255, 255, 255, 0.8); padding: 15px; border-radius: 12px; margin-bottom: 20px;">
+                            <p style="font-size: 1.1rem; color: #2c3e50; margin-bottom: 10px; font-weight: 600;">🏗️ Weeks of infrastructure</p>
+                            <p style="font-size: 1.1rem; color: #2c3e50; margin-bottom: 10px; font-weight: 600;">🔧 Complex/Bespoke CI/CD setup</p>
+                            <p style="font-size: 1.1rem; color: #2c3e50; margin: 0; font-weight: 600;">🤔 Virtual Machines? Containers?</p>
+                        </div>
+                        <div style="background: linear-gradient(135deg, #e67e22, #d35400); color: white; padding: 12px; border-radius: 8px; font-weight: bold; font-size: 1rem;">
+                            "Maybe next quarter..."
+                        </div>
+                    </div>
+
+                    <!-- Visual Separator -->
+                    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%;">
+                        <div style="font-size: 3rem; margin-bottom: 10px; color: #ff3333;">VS</div>
+                        <div style="width: 2px; height: 200px; background: linear-gradient(to bottom, transparent, #ff3333, transparent);"></div>
+                    </div>
+
+                    <!-- Card 3: The Vision -->
+                    <div style="background: linear-gradient(45deg, #fff, #f8f9fa, #fff); padding: 30px; border-radius: 12px; border: 3px solid #ff3333; text-align: center; box-shadow: 0 0 30px rgba(255, 51, 51, 0.6), 0 0 60px rgba(255, 51, 51, 0.3); position: relative; animation: cardPulse 3s ease-in-out infinite; overflow: hidden;">
+                        <div style="color: #ff3333; font-size: 1rem; font-weight: bold; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px;">Our Vision</div>
+                        <!-- Animated background effect -->
+                        <div style="position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: linear-gradient(45deg, transparent, rgba(255, 51, 51, 0.05), transparent); animation: backgroundShine 4s linear infinite; pointer-events: none;"></div>
+                        
+                        <div style="font-size: 3rem; margin-bottom: 20px; filter: drop-shadow(0 0 10px rgba(255, 51, 51, 0.8)); animation: iconBounce 2s ease-in-out infinite; position: relative; z-index: 2;">✨⭐✨</div>
+                    <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 20px; min-height: 180px; position: relative; z-index: 2;">
+                        <div id="deployButton" style="background: linear-gradient(135deg, #ff3333, #e60000); color: white; width: 180px; height: 180px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-align: center; font-size: 1.3rem; font-weight: bold; box-shadow: 0 0 0 4px rgba(255, 51, 51, 0.3), 0 12px 40px rgba(255, 51, 51, 0.8); cursor: pointer; transition: all 0.3s ease; border: 4px solid rgba(255, 255, 255, 0.6); position: relative; overflow: hidden; animation: buttonPulse 2s ease-in-out infinite; margin: 0 auto;" onclick="launchRocket()">
+                            <div style="position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.4), transparent); transform: rotate(45deg); animation: shine 2s ease-in-out infinite;"></div>
+                            <span id="buttonText" style="z-index: 2; position: relative; line-height: 1.2; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">🚀<br>Deploy My<br>Repository</span>
+                            <span id="flyingRocket" style="position: absolute; font-size: 2rem; opacity: 0; z-index: 10;">🚀</span>
+                        </div>
+                    </div>
+                    <div style="height: 45px;"></div>
                     </div>
                 </div>
                 
-                <div style="flex: 1; text-align: left;">
-                    <h3 style="color: #f39c12; margin-bottom: 30px; height: 40px; display: flex; align-items: center;">💡 The Vision</h3>
-                    <div style="background: #fefcf3; padding: 20px 30px 60px 30px; border-radius: 12px; border-left: 6px solid #f39c12; height: 320px; display: flex; flex-direction: column; justify-content: space-between; border: 2px solid #f39c12; box-shadow: 0 0 30px rgba(243, 156, 18, 0.4), 0 0 60px rgba(243, 156, 18, 0.2), inset 0 0 20px rgba(243, 156, 18, 0.05); animation: pulseGlow 3s ease-in-out infinite;">
-                        <div>
-                            <div id="deployButton" style="background: linear-gradient(135deg, #ff3333, #e60000); color: white; width: 200px; height: 200px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-align: center; font-size: 1.4rem; font-weight: bold; margin: 0 auto; box-shadow: 0 12px 35px rgba(255, 51, 51, 0.4), 0 0 40px rgba(255, 51, 51, 0.3), inset 0 8px 20px rgba(255, 255, 255, 0.2), inset 0 -8px 20px rgba(0, 0, 0, 0.2); transform: scale(1.05); cursor: pointer; transition: all 0.3s ease; border: 4px solid rgba(255, 255, 255, 0.3); position: relative; overflow: hidden;" onclick="launchRocket()">
-                                <div style="position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.15), transparent); transform: rotate(45deg); animation: shine 3s ease-in-out infinite;"></div>
-                                <span id="buttonText" style="z-index: 2; position: relative; line-height: 1.2;">🚀<br>Just Deploy<br>It</span>
-                                <span id="flyingRocket" style="position: absolute; font-size: 2rem; opacity: 0; z-index: 10;">🚀</span>
-                            </div>
-                        </div>
-                        <p style="font-size: 1.2rem; color: #f39c12; margin-bottom: 0; margin-top: 25px; font-weight: bold; text-align: center;">The BIG RED BUTTON of platforms</p>
-                    </div>
-                </div>
+                <!-- Add enhanced animations -->
+                <style>
+                    @keyframes cardPulse {
+                        0%, 100% { 
+                            box-shadow: 0 0 30px rgba(255, 51, 51, 0.6), 0 0 60px rgba(255, 51, 51, 0.3), 0 0 90px rgba(255, 51, 51, 0.1), inset 0 0 20px rgba(255, 51, 51, 0.05);
+                        }
+                        50% { 
+                            box-shadow: 0 0 40px rgba(255, 51, 51, 0.8), 0 0 80px rgba(255, 51, 51, 0.5), 0 0 120px rgba(255, 51, 51, 0.2), inset 0 0 30px rgba(255, 51, 51, 0.08);
+                        }
+                    }
+                    
+                    @keyframes buttonPulse {
+                        0%, 100% { 
+                            transform: scale(1);
+                            box-shadow: 0 0 0 4px rgba(255, 51, 51, 0.3), 0 0 0 8px rgba(255, 51, 51, 0.1), 0 15px 40px rgba(255, 51, 51, 0.8), 0 0 60px rgba(255, 51, 51, 0.6), inset 0 8px 20px rgba(255, 255, 255, 0.3), inset 0 -8px 20px rgba(0, 0, 0, 0.2);
+                        }
+                        50% { 
+                            transform: scale(1.05);
+                            box-shadow: 0 0 0 6px rgba(255, 51, 51, 0.4), 0 0 0 12px rgba(255, 51, 51, 0.2), 0 20px 50px rgba(255, 51, 51, 1), 0 0 80px rgba(255, 51, 51, 0.8), inset 0 8px 20px rgba(255, 255, 255, 0.4), inset 0 -8px 20px rgba(0, 0, 0, 0.2);
+                        }
+                    }
+                    
+                    @keyframes iconBounce {
+                        0%, 100% { transform: translateY(0); }
+                        50% { transform: translateY(-10px); }
+                    }
+                    
+                    @keyframes backgroundShine {
+                        0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+                        100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+                    }
+                </style>
             </div>
         </div>
 
         <!-- Part 2: The How -->
-        <div class="slide">
-            <h2>The How</h2>
-            <h3>The Architecture</h3>
+        <div class="slide" style="padding: 80px 40px 40px 40px; background: #ffffff !important; color: #000000 !important;">
+            <h2 style="color: #e67e22 !important; font-size: 3rem !important; margin-bottom: 20px !important;">The How</h2>
+            <h3 style="color: #2c3e50 !important; margin-bottom: 30px !important;">The Architecture</h3>
             
             <div class="architecture-diagram" style="width: 100%; margin: 20px auto; overflow: visible;">
                 <div id="mermaidDiagram" style="display: flex; justify-content: center; align-items: center; min-height: 50px; width: 100%; overflow-x: auto;">
@@ -320,27 +389,21 @@
                         graph LR
                             A["🚀 Push<br>Code"] --> B["🔍 Detect<br>Change"]
                             B --> C["⚡ Trigger<br>Pipeline"]
-                            C --> D{"🎯 Process<br>Application"}
-                            D --> E["📦 Package<br>Application"]
-                            D --> G["📄 Generate<br>Manifests"]
-                            E --> F["🏪 Store<br>Image"]
-                            G --> H["📝 Create<br>Config"]
-                            F --> I["🚀 Deploy<br>Application"]
-                            H --> I
-                            I --> J["⚙️ Provision<br>Infrastructure"]
-                            J --> K["🌐 Make<br>Live"]
+                            C --> D["📦 Package<br>Application"]
+                            C --> E["⚙️ Create<br>Config"]
+                            D --> F["🏪 Store<br>Image"]
+                            E --> G["📋 Generate<br>Manifests"]
+                            F --> H["🚀 Deploy and<br>Provision"]
+                            G --> H
+                            H --> I["🌐 Live<br>Application"]
 
-                            classDef startNode fill:#e67e22,stroke:#d35400,stroke-width:2px,color:#000,font-size:14px,font-family:Arial
+                            classDef startNode fill:#e67e22,stroke:#d35400,stroke-width:2px,color:#fff,font-size:14px,font-family:Arial
                             classDef actionNode fill:#f39c12,stroke:#e67e22,stroke-width:2px,color:#000,font-size:14px,font-family:Arial
-                            classDef processNode fill:#f1c40f,stroke:#f39c12,stroke-width:2px,color:#000,font-size:14px,font-family:Arial
-                            classDef finalNode fill:#e67e22,stroke:#d35400,stroke-width:2px,color:#000,font-size:14px,font-family:Arial
+                            classDef finalNode fill:#27ae60,stroke:#229954,stroke-width:2px,color:#fff,font-size:14px,font-family:Arial
 
                             class A startNode
-                            class B,C actionNode
-                            class D startNode
-                            class E,G,I actionNode
-                            class F,H,J processNode
-                            class K finalNode
+                            class B,C,D,E,F,G,H actionNode
+                            class I finalNode
                     `;
                     
                     mermaid.render('mermaidSvg', diagramDefinition).then(({ svg }) => {
@@ -364,43 +427,42 @@
 
             <div class="key-points">
                 <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 15px; margin-top: 30px;">
-                    <div style="background: linear-gradient(135deg, #3498db, #2980b9); color: white; padding: 15px; border-radius: 12px; box-shadow: 0 6px 20px rgba(52, 152, 219, 0.3); text-align: center;">
-                        <div style="font-size: 1.8rem; margin-bottom: 8px;">🐙</div>
-                        <h4 style="margin: 0 0 6px 0; font-size: 1rem; font-weight: bold;">GitHub App</h4>
-                        <p style="margin: 0; font-size: 0.85rem; color: #ecf0f1; text-align: center;">Listens for push events</p>
+                    <div style="background: #f8f9fa; padding: 20px; border-radius: 12px; border-left: 4px solid #e67e22; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                        <div style="font-size: 2rem; margin-bottom: 10px;">🐙</div>
+                        <h4 style="margin: 0 0 8px 0; color: #2c3e50; font-size: 1rem;">GitHub Repository</h4>
+                        <p style="margin: 0; font-size: 0.9rem; color: #2c3e50; font-weight: bold; text-align: center;">Listens for any code changes</p>
                     </div>
                     
-                    <div style="background: linear-gradient(135deg, #9b59b6, #8e44ad); color: white; padding: 15px; border-radius: 12px; box-shadow: 0 6px 20px rgba(155, 89, 182, 0.3); text-align: center;">
-                        <div style="font-size: 1.8rem; margin-bottom: 8px;">⚙️</div>
-                        <h4 style="margin: 0 0 6px 0; font-size: 1rem; font-weight: bold;">Harness Pipeline</h4>
-                        <p style="margin: 0; font-size: 0.85rem; color: #ecf0f1; text-align: center;">Auto-packaging stages</p>
+                    <div style="background: #f8f9fa; padding: 20px; border-radius: 12px; border-left: 4px solid #e67e22; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                        <div style="font-size: 2rem; margin-bottom: 10px;">⚙️</div>
+                        <h4 style="margin: 0 0 8px 0; color: #2c3e50; font-size: 1rem;">Harness Pipeline</h4>
+                        <p style="margin: 0; font-size: 0.9rem; color: #2c3e50; font-weight: bold; text-align: center;">Auto-packaging stages</p>
                     </div>
                     
-                    <div style="background: linear-gradient(135deg, #e74c3c, #c0392b); color: white; padding: 15px; border-radius: 12px; box-shadow: 0 6px 20px rgba(231, 76, 60, 0.3); text-align: center;">
-                        <div style="font-size: 1.8rem; margin-bottom: 8px;">📄</div>
-                        <h4 style="margin: 0 0 6px 0; font-size: 1rem; font-weight: bold;">.services.yaml</h4>
-                        <p style="margin: 0; font-size: 0.85rem; color: #ecf0f1; text-align: center;">Secret sauce config</p>
+                    <div style="background: #f8f9fa; padding: 20px; border-radius: 12px; border-left: 4px solid #e67e22; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                        <div style="font-size: 2rem; margin-bottom: 10px;">📄</div>
+                        <h4 style="margin: 0 0 8px 0; color: #2c3e50; font-size: 1rem;">Custom Deployment Configuration</h4>
+                        <p style="margin: 0; font-size: 0.9rem; color: #2c3e50; font-weight: bold; text-align: center;">Secret sauce config</p>
                     </div>
                     
-                    <div style="background: linear-gradient(135deg, #27ae60, #229954); color: white; padding: 15px; border-radius: 12px; box-shadow: 0 6px 20px rgba(39, 174, 96, 0.3); text-align: center;">
-                        <div style="font-size: 1.8rem; margin-bottom: 8px;">🔧</div>
-                        <h4 style="margin: 0 0 6px 0; font-size: 1rem; font-weight: bold;">Custom CLI</h4>
-                        <p style="margin: 0; font-size: 0.85rem; color: #ecf0f1; text-align: center;">Score.dev framework</p>
+                    <div style="background: #f8f9fa; padding: 20px; border-radius: 12px; border-left: 4px solid #e67e22; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                        <div style="font-size: 2rem; margin-bottom: 10px;">🔧</div>
+                        <h4 style="margin: 0 0 8px 0; color: #2c3e50; font-size: 1rem;">Custom CLI</h4>
+                        <p style="margin: 0; font-size: 0.9rem; color: #2c3e50; font-weight: bold; text-align: center;">Dynamically generate manifests</p>
                     </div>
                     
-                    <div style="background: linear-gradient(135deg, #f39c12, #e67e22); color: white; padding: 15px; border-radius: 12px; box-shadow: 0 6px 20px rgba(243, 156, 18, 0.4); text-align: center;">
-                        <div style="font-size: 1.8rem; margin-bottom: 8px;">🚀</div>
-                        <h4 style="margin: 0 0 6px 0; font-size: 1rem; font-weight: bold;">Auto-deploy</h4>
-                        <p style="margin: 0; font-size: 0.85rem; color: #ecf0f1; text-align: center;">EKS with public URL</p>
+                    <div style="background: #f8f9fa; padding: 20px; border-radius: 12px; border-left: 4px solid #e67e22; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                        <div style="font-size: 2rem; margin-bottom: 10px;">🚀</div>
+                        <h4 style="margin: 0 0 8px 0; color: #2c3e50; font-size: 1rem;">Auto-deploy</h4>
+                        <p style="margin: 0; font-size: 0.9rem; color: #2c3e50; font-weight: bold; text-align: center;">Secure build and deploy</p>
                     </div>
                 </div>
             </div>
         </div>
 
         <!-- Part 3: The What - Live Demo -->
-        <div class="slide">
-            <h2>The What</h2>
-            <h3>Live Demo</h3>
+        <div class="slide" style="padding: 80px 40px 80px 40px; background: #ffffff !important; color: #000000 !important;">
+            <h2 style="color: #e67e22 !important; font-size: 3rem !important; margin-bottom: 20px !important;">The What</h2>
             
             <!-- Main Demo Placeholder -->
             <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 400px; text-align: center;">
@@ -449,7 +511,7 @@
         </div>
 
         <!-- Part 4: Call to Action -->
-        <div class="slide">
+        <div class="slide" style="padding: 80px 40px 80px 40px; background: #ffffff !important; color: #000000 !important;">
             
             <!-- Clean Header -->
             <div style="text-align: center; margin-bottom: 30px;">
@@ -489,7 +551,7 @@
             <!-- Simple CTA -->
             <div style="text-align: center; margin-top: 40px;">
                 <h3 style="color: #2c3e50; margin-bottom: 15px;">🚀 Ready to Build the Future?</h3>
-                <p style="font-size: 1.3rem; color: #e67e22; font-weight: bold; text-align: center; margin-bottom: 20px; text-shadow: 1px 1px 2px rgba(0,0,0,0.1);">Message me on Teams or email directly</p>
+                <p style="font-size: 1.3rem; color: #e67e22; font-weight: bold; text-align: center; margin-bottom: 20px; text-shadow: 1px 1px 2px rgba(0,0,0,0.1);">Message me on Teams or email directly - <span style="font-size: 1.5rem; color: #2c3e50; text-shadow: 2px 2px 4px rgba(0,0,0,0.2);">Alex Harrington</span></p>
                 <div style="background: #e67e22; color: white; padding: 15px 40px; border-radius: 25px; display: inline-block; font-size: 1.3rem; font-weight: bold; box-shadow: 0 4px 15px rgba(230, 126, 34, 0.3);">
                     🙋‍♂️ Who's ready to get their hands dirty?
                 </div>
